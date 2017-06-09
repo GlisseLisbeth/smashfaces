@@ -1,0 +1,21 @@
+body{
+  font-family: 'Rokkitt', serif;
+  padding: 0;
+}
+
+header hr{
+  margin-top: 0;
+  width: 5%;
+  border-top: 3px solid black;
+}
+
+.description p{
+  font-family: 'Roboto', sans-serif;
+}
+.span12{
+  font-size: 1.5em;
+}
+
+.down-right{
+  height: 100%;
+}
