@@ -68,23 +68,21 @@ const Game = (update) =>{
   send.on('click',(e) => {
     e.preventDefault();
     msg.show();
-    if(objSeat[random].name == nameInput.val() && nameInput.val() != ""){
-        reRender(nameSeat, objSeat, img, update);
+    if(objSeat[random].name === nameInput.val()){
         msg.removeClass( "alert alert-success msg hidden" ).addClass( "alert alert-success msg" );
-        msg.html("Bien").fadeOut(3000);
+        msg.html("Bien").fadeOut(1000);
         state.point += 5;
-      }
-      if(state.intent == 5){
-        msg.removeClass( "alert alert-success msg hidden" ).addClass( "alert alert-danger msg" );
-        state.point -= 1;
-        msg.html("Incorrecto, hizo 5 intentos").fadeOut(3000);
-        state.intent = 0;
         reRender(nameSeat, objSeat, img, update);
       }
       else if(state.intent<=5){
         msg.removeClass( "alert alert-success msg hidden" ).addClass( "alert alert-danger msg" );
         state.intent += 1;
-        msg.html("Incorrecto, hiciste "+state.intent+" intento(s)").fadeOut(3000);
+        msg.html("Incorrecto, hiciste "+state.intent+" intento(s)").fadeOut(1000);
+        if(state.intent == 5){
+          state.intent = 0;
+          state.point -= 1;
+          reRender(nameSeat, objSeat, img, update);
+          }
       }
       points.html("Puntos: "+state.point + " puntos");
       nameInput.val("");
