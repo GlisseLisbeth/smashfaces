@@ -3,6 +3,7 @@ var random, nameSeat, objSeat;
 const reRender = (nameSeat , objSeat, img, update) => {
     random = Math.floor(Math.random() * objSeat.length);
     img.attr("src","fotos/"+nameSeat+"/" +  objSeat[random].image);
+    update();
 		return random;
   }
 
@@ -55,7 +56,6 @@ const Game = (update) =>{
     if(nameSeat == "peru"){
       objSeat = state.peru;
       optionMexico.hide();
-
     }
     else if(nameSeat == "mexico"){
       objSeat = state.mexico;
@@ -63,6 +63,7 @@ const Game = (update) =>{
     }
     reRender(nameSeat, objSeat, img, update);
     nameInput.focus();
+    update();
   });
 
   send.on('click',(e) => {
@@ -88,5 +89,6 @@ const Game = (update) =>{
       nameInput.val("");
       nameInput.focus();
   });
+  update;
   return game;
 }
