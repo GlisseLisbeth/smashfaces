@@ -3,8 +3,7 @@ var random, nameSeat, objSeat;
 const reRender = (nameSeat , objSeat, img, update) => {
     random = Math.floor(Math.random() * objSeat.length);
     img.attr("src","fotos/"+nameSeat+"/" +  objSeat[random].image);
-    update();
-		return random;
+    return random;
   }
 
 const Game = (update) =>{
@@ -63,7 +62,6 @@ const Game = (update) =>{
     }
     reRender(nameSeat, objSeat, img, update);
     nameInput.focus();
-    update();
   });
 
   send.on('click',(e) => {
@@ -71,15 +69,17 @@ const Game = (update) =>{
     msg.show();
     if(objSeat[random].name === nameInput.val()){
         msg.removeClass( "alert alert-success msg hidden" ).addClass( "alert alert-success msg" );
+        msg.removeClass( "alert alert-danger msg hidden" ).addClass( "alert alert-success msg" );
         msg.html("Bien").fadeOut(1000);
         state.point += 5;
+        state.intent = 0;
         reRender(nameSeat, objSeat, img, update);
       }
       else if(state.intent<=5){
         msg.removeClass( "alert alert-success msg hidden" ).addClass( "alert alert-danger msg" );
         state.intent += 1;
         msg.html("Incorrecto, hiciste "+state.intent+" intento(s)").fadeOut(1000);
-        if(state.intent == 5){
+        if(state.intent === 5){
           state.intent = 0;
           state.point -= 1;
           reRender(nameSeat, objSeat, img, update);
@@ -89,6 +89,5 @@ const Game = (update) =>{
       nameInput.val("");
       nameInput.focus();
   });
-  update;
   return game;
 }
