@@ -9,12 +9,14 @@ const render = (root) =>{
   root.append(wrapper);
 }
 
-// const state = {
-//   codersMexico = [],
-//   codersPeru = []
-// }
+const state = {
+   mexico: mexico,
+   peru: peru,
+   point: 0,
+   intent: 0
+};
 
 $( _ => {
-  const root = $('.root');
-  render(root);
+    const root = $('.root');
+    render(root);
 });

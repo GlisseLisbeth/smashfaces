@@ -1,6 +1,7 @@
 body{
   font-family: 'Rokkitt', serif;
   padding: 0;
+  overflow-x: auto;
 }
 
 header hr{
@@ -18,4 +19,25 @@ header hr{
 
 .down-right{
   height: 100%;
+}
+#game{
+  background-color: #333;
+}
+.down-left{
+  padding-left: 0px;
+}
+.name{
+  color: white;
+}
+.margin-top-20{
+  margin-top: 20px;
+}
+.btn-warning{
+  background-color: #f9a91a !important;
+  border-color: none: !important;
+  border-radius: 0 !important;
+}
+.seats{
+  width: 35%;
+  background-color: #ccc;
 }
