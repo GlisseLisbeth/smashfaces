@@ -3,9 +3,9 @@
 const render = (root) =>{
   root.empty();
   const wrapper = $('<div class ="wrapper"></div>');
-  wrapper.append(Header());
-  wrapper.append(Description());
-  wrapper.append(Game())
+  wrapper.append(Header(_=>render(root)));
+  wrapper.append(Description(_=>render(root)));
+  wrapper.append(Game(_=>render(root)))
   root.append(wrapper);
 }
 
